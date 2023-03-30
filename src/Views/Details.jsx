@@ -12,13 +12,6 @@ const Details = function() {
     const [characters, setCharacters] = useState({});
     const Ninguna = ()=>{};
 
-    /*
-    fetch(`${url}${params.id}`)
-       .then(res => res.json())
-       .then((data) => {
-           setCharacters(data);  
-    }); */
-
     useEffect(() => {
         fetch(`${url}${params.id}`)
           .then((response) => response.json())
@@ -37,21 +30,21 @@ const Details = function() {
 
 
     return (
-       <div>
-            <NavBar onSearch={Ninguna}/>
-            <Detalles
-                    id={characters.id}
-                    name={characters.name}
-                    species={characters.species}
-                    gender={characters.gender}
-                    image={characters.image}
-                    status={characters.status}
-                    type={characters.type}
-                    origin={characters.origin}
-                    created={characters.created}
-            />        
-       </div>
-    )
+        <div>
+             <NavBar onSearch={Ninguna}/>
+             <Detalles
+                     id={characters.id}
+                     name={characters.name}
+                     species={characters.species}
+                     gender={characters.gender}
+                     image={characters.image}
+                     status={characters.status}
+                     type={characters.type}
+                     origin={characters.origin}
+                     created={characters.created}
+             />        
+        </div>
+     )
 }
 
 export default Details;
