@@ -1,0 +1,47 @@
+.divAbout {
+    background: linear-gradient(70deg,  rgb(53, 2, 27), rgb(202, 163, 183));
+    width: 50%;
+    margin:10px;
+    border-radius: 15%;
+    padding: 10px;
+}
+
+.parrafos {
+    color:white;
+    font-size:small;
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+}
+
+.ulAbout {
+    text-align: start;
+    color: white;
+}
+
+.subtitulo {
+    color:chocolate;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 3px 7px 9px #000;
+}
+
+.titulo {
+    color:yellow;
+    text-shadow: 3px 7px 9px #000;
+}
+
+.divFoto {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.foto {
+    background-image: url('../../img/fotopol.jpg');
+    border: 2px solid black;
+    height: 100%;
+    width: 100px;
+}

@@ -1,0 +1,22 @@
+.btnRandom {
+    width: 80px;
+    height:100%;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-image: url('../../img/logo1.png');
+    text-shadow: 3px 7px 9px #000;;
+}
+
+.divBoton {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin-top: 4px;
+
+}
+
+.btnRandom:hover {
+    cursor: pointer;
+}
