@@ -46,7 +46,7 @@ function Home () {
             <div className={style.btnRandom} onClick={onRandom}></div>
         </div>
         <div>
-           <Cards characters={characters} onClose={onClose} />
+           <Cards characters={characters} onClose={onClose} estado={1}/>
         </div>
         <hr />
         <h4 className="productor">By Paul Martinez N.</h4>

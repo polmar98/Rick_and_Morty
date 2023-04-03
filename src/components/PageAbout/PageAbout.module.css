@@ -45,3 +45,16 @@
     height: 100%;
     width: 100px;
 }
+
+@media (max-width: 740px) {
+    .flex {
+        display:  inline-block;
+        justify-content:space-around;
+        align-content: center;
+        margin: auto;
+    
+    }
+    .divAbout {
+        width: 80%;
+    }
+}

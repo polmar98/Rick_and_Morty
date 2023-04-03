@@ -1,10 +1,12 @@
 import NavBar from "../components/NavBar/NavBar";
+import Form from '../components/Form/Form';
 const Landing = function() {
    const Ninguna = ()=>{};
    return (
       <div>
-          <NavBar  onSearch = {Ninguna}/>  
-          <h1 className="productor">Rick & Morty - Project</h1>
+          <NavBar  onSearch = {Ninguna} />  
+          <Form/>
+ 
           <div className="landContenido">
               <p className="parrafoLanding">Rick y Morty (en inglés: Rick and Morty) es una serie de televisión americana
                de animación para adultos creada por Justin Roiland y Dan Harmon en 2013 para Adult Swim,
@@ -21,8 +23,9 @@ const Landing = function() {
                por discusiones entre él y los ejecutivos de la serie que había creado, Community,
                él y Roiland desarrollaron una serie basada en los personajes ya creados por Roiland.
               </p>
+       
           </div> 
-
+          <h1 className="productor">Rick & Morty - Project</h1>
       </div>
    )
 }

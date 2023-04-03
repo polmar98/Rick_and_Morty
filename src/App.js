@@ -5,6 +5,7 @@ import Landing from './Views/Landing';
 import Home from './Views/Home';
 import About from './Views/About';
 import Details from './Views/Details';
+import All from './Views/All';
 //import {useGlobalState, setGlobalState} from './index';
 
 function App () {
@@ -14,6 +15,7 @@ function App () {
       <Routes>
           <Route path="/Home" element={<Home/>} />
           <Route path="/About" element={<About/>} />
+          <Route path="/All" element={<All/>} />
           <Route path="/" element={<Landing/>} />
           <Route path="/Details/:id" element={<Details/>} />
       </Routes>

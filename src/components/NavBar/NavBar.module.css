@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .titulo {
@@ -13,6 +14,7 @@
     color:rgb(226, 36, 36);
     font-size: 30px;
     padding: 5px;
+ 
 }
 
 .searchbarContainer {
@@ -22,9 +24,50 @@
 
 .Menu {
     display: flex;
+    margin: 0px;
+    padding: 0;
 }
 
 .itemsMenu {
-    margin-left: 25px;
+    margin-left: 35px;
     color: white;
+    list-style: none;
 }
+
+
+@media (max-width: 780px) {
+    .Barra {
+        height: 190px;
+        background-color: black;
+        display: block;
+        margin: 2px;
+        width: 100%;
+        border-radius: 8%;
+    }
+    .titulo {
+        font-size: 25px;
+        width: 100%;
+        margin: 0px;
+        display: block;
+    }
+    .Menu {
+        display: block;
+        text-align: center;
+        margin: auto;
+        justify-content: space-around;
+        width: 100%;
+        padding: 5px;
+    }
+    .itemsMenu {
+        display: block;
+        background-color: grey;
+        margin: auto;
+        margin-bottom: 2px;
+        border-radius: 2%;
+        padding: 3px;
+    }
+    .searchbarContainer {
+        border: none;
+    }
+}
+   

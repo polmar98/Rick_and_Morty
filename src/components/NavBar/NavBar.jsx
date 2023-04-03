@@ -9,11 +9,14 @@ export default function NavBar(props) {
             <NavLink to="/Home">
                 <h3 className={style.titulo}>Rick and Morty</h3> 
             </NavLink>
-            <ul className={style.Menu}>
-                <NavLink to="/"><li className={style.itemsMenu}>Home</li></NavLink>
-                <NavLink to="/home"><li className={style.itemsMenu}>Cards</li></NavLink>
-                <NavLink to="/About"><li className={style.itemsMenu}>About</li></NavLink>
-            </ul>
+            <div>
+                <ul className={style.Menu}>
+                   <NavLink to="/"><li className={style.itemsMenu}>Home</li></NavLink>
+                   <NavLink to="/home"><li className={style.itemsMenu}>Cards</li></NavLink>
+                   <NavLink to="/About"><li className={style.itemsMenu}>About</li></NavLink>
+                   <NavLink to="/All"><li className={style.itemsMenu}>All</li></NavLink>
+                </ul>
+            </div>
             <div className={style.searchbarContainer}>
                  <SearchBar onSearch={props.onSearch} />
             </div>

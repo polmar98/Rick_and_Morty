@@ -1,0 +1,42 @@
+.tarjeta {
+    display: inline-block;
+    width: 150px;
+    height: 220px;
+    background: linear-gradient(70deg, rgba(29, 3, 10, 0.7), rgba(143, 52, 67, 0.7));
+    margin: 15px;
+    padding: 5x;
+    border-radius: 10%;
+    Box-shadow:  3px 6px 15px 4px  rgb(20, 9, 2);
+    outline: 2px solid rgb(44, 3, 5);
+}
+
+.navTitulo {
+    margin: 0;
+    background: linear-gradient(70deg, rgba(7, 6, 1, 0.7), rgba(243, 224, 113, 0.7));
+    width: 100%;
+    height: 50px;    
+}
+
+.titulo {
+    color: white;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    text-shadow: 3px 7px 9px #000;
+    border-radius: 15%;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+.imagen {
+    width: 90%;
+    height: 120px;
+    border-radius: 10%;
+    margin-top: 5px;
+}
+
+.idTarjeta {
+    margin-top: 0;
+    color: white;
+    font-size: 12px;
+}
