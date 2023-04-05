@@ -12,7 +12,7 @@ export default function NavBar(props) {
             <div>
                 <ul className={style.Menu}>
                    <NavLink to="/"><li className={style.itemsMenu}>Home</li></NavLink>
-                   <NavLink to="/home"><li className={style.itemsMenu}>Cards</li></NavLink>
+                   <NavLink to="/Cards"><li className={style.itemsMenu}>Cards</li></NavLink>
                    <NavLink to="/About"><li className={style.itemsMenu}>About</li></NavLink>
                    <NavLink to="/All"><li className={style.itemsMenu}>All</li></NavLink>
                    <li className={style.itemsMenu} onClick={props.logout}>Logout</li>

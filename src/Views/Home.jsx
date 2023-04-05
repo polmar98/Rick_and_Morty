@@ -1,15 +1,20 @@
 import React from "react";
 import Cards from '../components/Cards/Cards.jsx';
+import NavBar from "../components/NavBar/NavBar.jsx";
 import {useState} from "react"; 
 import style from "../components/Cards/Cards.module.css";
+import { useNavigate } from "react-router-dom";
 const url ='https://rickandmortyapi.com/api/character/';
 
 
 function Home () {
     const imagen = "../img/logo.png";
     const [characters, setCharacters] = useState([]);
+    const navigate = useNavigate();
     
-    
+    const logout = () => {
+      navigate('/');
+   }
     const onSearch = (id) => {
        //revisamos si en ese estado ya fue cargado el id
        const buscado = characters.find(ele => ele.id==id);
@@ -44,6 +49,7 @@ function Home () {
   
     return (
       <div className='App' >
+        <NavBar onSearch={onSearch}  logout={logout}/>
         <div className={style.divBoton} >
             <div className={style.btnRandom} onClick={onRandom}></div>
         </div>

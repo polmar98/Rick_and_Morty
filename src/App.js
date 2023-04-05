@@ -62,11 +62,11 @@ function App () {
 
    return (
       <div className="App">
-      {location.pathname !== '/' && (
+      {(location.pathname !== '/' && location.pathname !== '/Cards') && (
           <NavBar onSearch={onSearch} logout={logout}/>
       )}
       <Routes>
-          <Route path="/Home" element={<Home characters={characters} onClose={onClose} estado={1}/>} />
+          <Route path="/Cards" element={<Home characters={characters} onClose={onClose} estado={1}/>} />
           <Route path="/About" element={<About/>} />
           <Route path="/All" element={<All/>} />
           <Route path="/" element={<Landing login={login}/>} />
