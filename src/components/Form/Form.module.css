@@ -24,8 +24,8 @@
 }
 
 .input {
-    border-color: red;
-    background-color: rgb(250, 210, 210);
+    border-color: rgb(13, 73, 8);
+    background-color: rgb(199, 248, 206);
     height: 20px;
     font-size: 20px;
     width: 300px;
@@ -56,4 +56,13 @@
    .Subtitulo {
       font-size: 15px;
    }
+}
+
+.error {
+    border-color: red;
+    background-color: rgb(241, 134, 134);
+    height: 20px;
+    font-size: 20px;
+    width: 300px;
+    border-radius: 10%;
 }

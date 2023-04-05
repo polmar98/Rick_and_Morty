@@ -15,10 +15,11 @@ export default function NavBar(props) {
                    <NavLink to="/home"><li className={style.itemsMenu}>Cards</li></NavLink>
                    <NavLink to="/About"><li className={style.itemsMenu}>About</li></NavLink>
                    <NavLink to="/All"><li className={style.itemsMenu}>All</li></NavLink>
+                   <li className={style.itemsMenu} onClick={props.logout}>Logout</li>
                 </ul>
             </div>
             <div className={style.searchbarContainer}>
-                 <SearchBar onSearch={props.onSearch} />
+                 <SearchBar onSearch={(CharacterID) => props.onSearch(CharacterID)} />
             </div>
  
         </div>

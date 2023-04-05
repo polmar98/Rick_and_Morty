@@ -1,11 +1,9 @@
-import NavBar from "../components/NavBar/NavBar";
 import Form from '../components/Form/Form';
-const Landing = function() {
-   const Ninguna = ()=>{};
+const Landing = function({login}) {
+
    return (
       <div>
-          <NavBar  onSearch = {Ninguna} />  
-          <Form/>
+          <Form login={login}/>
  
           <div className="landContenido">
               <p className="parrafoLanding">Rick y Morty (en inglés: Rick and Morty) es una serie de televisión americana

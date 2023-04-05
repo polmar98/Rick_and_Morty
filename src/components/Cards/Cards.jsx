@@ -1,4 +1,3 @@
-import react from "react";
 import Card from '../Card/Card';
 import CardSmall from '../Card/CardSmall';
 

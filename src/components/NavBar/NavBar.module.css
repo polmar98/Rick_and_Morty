@@ -34,6 +34,10 @@
     list-style: none;
 }
 
+.itemsMenu:hover {
+    cursor: pointer;
+}
+
 
 @media (max-width: 780px) {
     .Barra {

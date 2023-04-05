@@ -27,11 +27,11 @@ const Details = function() {
           });
         return setCharacters({});
     }, [params.id]);
-
+    
+    const logout=()=>{};
 
     return (
         <div>
-             <NavBar onSearch={Ninguna}/>
              <Detalles
                      id={characters.id}
                      name={characters.name}

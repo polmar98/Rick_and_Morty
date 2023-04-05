@@ -40,11 +40,9 @@ const All = function() {
     
     
     const Ninguna = ()=>{};
+    const logout = ()=>{};
     return (
         <div>
-           <div className='App' >
-              <NavBar  onSearch = {Ninguna}/>   
-           </div>
            <Cards characters={characters} onClose={Ninguna} estado={2} />
            <hr />
            <div>
