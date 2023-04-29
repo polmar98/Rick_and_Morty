@@ -2,22 +2,22 @@ import { useState } from "react";
 import style from './Form.module.css';
 import validation from "./validation";
 
-/*
+
 const validate = function (form, errors, setErrors) {
    if(!form.email) {
       setErrors({...errors, email: "Email Vacio"});
    } else {
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email)){ 
             if(!form.password) {
-               setErrors({...errors, password: "Password Requerido"});
+               setErrors({...errors, email: "",password: "Password Requerido"});
             } else {
-               setErrors({...errors, password: ""});
+               setErrors({...errors, email: "",password: ""});
             }
         }else{
             setErrors({...errors, email: "Email Invalido"});
         }
    }
- }*/
+ }
 
 const Form = function({login}) {
     const [form, setForm] = useState({email: "", password: "",});
@@ -29,7 +29,7 @@ const Form = function({login}) {
         const value = event.target.value;
         setErrors(validation({...form, [property]: value}));
         setForm({...form, [property]: value });
-        //validate({...form, [property]: value}, errors, setErrors);
+        validate({...form, [property]: value}, errors, setErrors);
     }
     const submitHandler = function(event) {
         event.preventDefault();
@@ -50,9 +50,10 @@ const Form = function({login}) {
                          onChange={handleChange}
                          value={form.email}
                        />
+                       <span>{errors.email}</span>
                      </div>
                         <div>
-                        <label htmlFor="password" className={style.Subtitulo}>Password :</label>
+                        <label htmlFor="password" className={style.Subtitulo}>Clave :</label>
                         <input 
                             type="password"
                             name="password"
@@ -60,6 +61,7 @@ const Form = function({login}) {
                             onChange={handleChange}
                             value={form.password}
                         />
+                        <span>{errors.password}</span>
                      </div>
                           <button type="submit" className={style.boton}>Ingresar</button>
                 </div>  

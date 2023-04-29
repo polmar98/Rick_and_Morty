@@ -8,9 +8,10 @@ const reducer = (state = initialState, {type, payload}) => {
 
     switch (type) {
         case 'ADD_FAVORITE':
-            let copia1= state.allCharacters;
-            copia1.push(payload);
-            return {...state, myFavorites: copia1, allCharacters: copia1};
+            let copiaFav= state.myFavorites;
+            let copiaAll= state.allCharacters;
+            copiaFav.push(payload);
+            return {...state, myFavorites: copiaFav, allCharacters: copiaAll};
         case 'REMOVE_FAVORITE':
             let copia2 = state.myFavorites.filter((char) => {
                return char.id !== Number(payload);
