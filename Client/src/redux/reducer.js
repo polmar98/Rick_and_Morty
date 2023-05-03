@@ -11,16 +11,18 @@ const reducer = (state = initialState, {type, payload}) => {
             let copiaFav= state.myFavorites;
             let copiaAll= state.allCharacters;
             copiaFav.push(payload);
+            copiaAll.push(payload);
             return {...state, myFavorites: copiaFav, allCharacters: copiaAll};
         case 'REMOVE_FAVORITE':
             let copia2 = state.myFavorites.filter((char) => {
                return char.id !== Number(payload);
             })
+           
             return {...state, myFavorites: copia2};
         case 'FILTER':
-            let copia3 = [...state.allCharacters];
+            let copia9 = [...state.allCharacters];
             if(payload === 'ALL') {
-                return {...state, myFavorites: copia3};
+                return {...state, myFavorites: copia9};
             } else {
                 let filtro = [...state.allCharacters].filter((char) => {
                     return char.gender === payload;
@@ -28,7 +30,7 @@ const reducer = (state = initialState, {type, payload}) => {
                 return {...state, myFavorites: filtro};
             }
         case 'ORDER':
-            let orden = [...state.allCharacters];
+            let orden = [...state.myFavorites];
             let orderChars = orden.sort((a,b) => {
                 if(a.id > b.id) {
                     return payload === 'Ascendente' ? 1 : -1

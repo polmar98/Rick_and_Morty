@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Detalles from "../components/Detalles/Detalles";
 import { useState } from "react";
 import { useEffect } from "react";
-//const url ='https://rickandmortyapi.com/api/character/';  //url original
-const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
+const url ='https://rickandmortyapi.com/api/character/';  //url original
+//const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 
 const Details = function() {
