@@ -6,8 +6,9 @@ import style from "../components/Cards/Cards.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMySelection, addSelection, delSelection } from "../redux/actions.js";
-const url1 ='https://rickandmortyapi.com/api/character/';
-const url2 ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
+import axios from "axios";
+const url ='https://rickandmortyapi.com/api/character/';
+//const url1='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 function Home (props) {
     const imagen = "../img/logo.png";
@@ -24,27 +25,29 @@ function Home (props) {
     const logout = () => {
       navigate('/');
    }
-    const onSearch = (id) => {
+    const onSearch = async (id) => {
        //revisamos si en ese estado ya fue cargado el id
        const buscado = characters.find(ele => ele.id===id);
-       console.log("ID:"+id);
+       console.log("ID Solicitado:"+id);
        if(buscado) {
            window.alert('Personaje ya se encuentra cargado');
            return;
        }
-       const url = id <= 20 ? url2 : url1;
-       fetch(`${url}${id}`)
-          .then(res => res.json())
-          .then((data) => {
-              if(data.name){
+       //const url = id <= 20 ? url1 : url2;
 
-                 setCharacters((oldChars) =>[...oldChars, data]);
-                 dispatch(addSelection(data));
-              } else {
-                  window.alert('Id no encontrado');
-              }
-       });
-
+       try {
+         const response = await axios(`${url}${id}`);
+         console.log(response.data);
+         const data = response.data;
+         if(data.name){
+            setCharacters((oldChars) =>[...oldChars, data]);
+            dispatch(addSelection(data));
+         } else {
+             window.alert('Id no encontrado');
+         }
+       } catch (error) {
+         window.alert(error.message); 
+       }
     }
    
 

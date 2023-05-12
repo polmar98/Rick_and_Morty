@@ -1,18 +1,69 @@
-export const addFav = (character) => {
+import axios from "axios";
 
+/*
+const addFav = (character) => {
+    const endpoint = 'http://localhost:3001/rickandmorty/fav';
+    return (dispatch) => {
+       axios.post(endpoint, character)
+       .then(({ data }) => {
+          return dispatch({
+             type: 'ADD_FAVORITE',
+             payload: data,
+          });
+       });
+    };
+ };
+*/
+export const addFav =  (character) => {
+    const endpoint = 'http://localhost:3001/rickandmorty/fav';
+    console.log("Enviado : ",character);
+    try {
+        return async (dispatch) => {
+            let respons = await axios.post(endpoint, character) ;
+            return dispatch({
+                type: 'ADD_FAVORITE',
+                payload: respons.data,
+            });
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+/*  ANTIGUA FUNCION ADDFAV
+const addFav = (character) => {
     return {
         type: 'ADD_FAVORITE',
         payload: character,
     }
 };
+*/
+// -----------------------------------------
+
+
+
+ //  ANTIGUA FUNCION DELFAV
+ //  --------------------------------
+// const delFav = (id) => {
+//    return {
+//        type: 'REMOVE_FAVORITE',
+//        payload: id,
+//    }
+//};
+//  -----------------------------------
 
 export const delFav = (id) => {
+    const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+    return async (dispatch) => {
+       await axios.delete(endpoint).then(({ data }) => {
+          return dispatch({
+             type: 'REMOVE_FAVORITE',
+             payload: data,
+       });
+       });
+    };
+ };
 
-    return {
-        type: 'REMOVE_FAVORITE',
-        payload: id,
-    }
-};
 
 export const filterCards = (gender) => {
     return {
@@ -47,4 +98,5 @@ export const delSelection = (id) => {
         type: 'DEL_MYSELECTION',
         payload: id,
     }
-}
+};
+

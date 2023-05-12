@@ -10,22 +10,39 @@ import NavBar from './components/NavBar/NavBar';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 //const url ='https://rickandmortyapi.com/api/character/';  //url original
+import axios from 'axios';
 const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 function App () {
    const location  = useLocation();
    const [access, setAccess] = useState(false);
-   const userEmail = "polmn98@gmail.com";
-   const userClave = "gisell1998";
+   //const userEmail = "polmn98@gmail.com";
+   //const userClave = "gisell1998";
    const navigate = useNavigate();
    const [characters, setCharacters] = useState([]);
 
-   function login(userData) {
-      if (userData.password === userClave && userData.email === userEmail) {
-         setAccess(true);
-         navigate('/home');
-      }
-   }
+//   ANTIGUA FUNCION DE LOGIN
+//   -------------------------------------------------------------------------
+//   function login(userData) {
+//      if (userData.password === userClave && userData.email === userEmail) {
+//         setAccess(true);
+//         navigate('/home');
+//      }
+//   }
+//   -------------------------------------------------------------------------
+
+  function login(userData) {
+     const { email, password } = userData;
+     const URL = 'http://localhost:3001/rickandmorty/login/';
+     axios(URL + `?email=${email}&password=${password}`)
+     .then(({ data }) => {
+        const { access } = data;
+        setAccess(access);
+        access && navigate('/home');
+     })
+     .catch(err => console.log(err.message));
+  }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -51,10 +68,8 @@ function App () {
                  window.alert('Id no encontrado');
                  return;
              }
-           
       });
       console.log(characters);
-  
    }
 
    const onClose = function(id) {

@@ -13,12 +13,14 @@ const reducer = (state = initialState, {type, payload}) => {
             copiaFav.push(payload);
             copiaAll.push(payload);
             return {...state, myFavorites: copiaFav, allCharacters: copiaAll};
+//              return { ...state, myFavorites: payload, allCharacters: payload };
+
         case 'REMOVE_FAVORITE':
-            let copia2 = state.myFavorites.filter((char) => {
-               return char.id !== Number(payload);
-            })
-           
-            return {...state, myFavorites: copia2};
+            //let copia2 = state.myFavorites.filter((char) => {
+            //   return char.id !== Number(payload);
+            //})
+            //return {...state, myFavorites: copia2};
+            return { ...state, myFavorites: payload };
         case 'FILTER':
             let copia9 = [...state.allCharacters];
             if(payload === 'ALL') {
