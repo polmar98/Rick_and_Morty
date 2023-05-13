@@ -1,9 +1,10 @@
 const url = "https://rickandmortyapi.com/api/character/";
 const axios = require("axios");
-/*
+
 // UTILIZANDO SOLO PROMESAS
 const getCharById = (req, res) => {
    const {id} = req.params;
+   console.log("ID Solicitado :", id);
    axios.get(`${url}${id}`)
    .then(response => {
       console.log(response.data.name);
@@ -20,13 +21,14 @@ const getCharById = (req, res) => {
    })
 }
 
-*/
+
+/*
 //UTILIZANDO PROMESAS con async - await
 const getCharById = async(req, res) => {
    const {id} = req.params;
-   console.log("ID :", id);
+   console.log("ID Solicitado :", id);
    try {
-      await axios.get(`${url}${id}`);
+      const response = await axios.get(`${url}${id}`);
       console.log(response.data.name);
       const {id,name,origin,status,gender,species,image} = response.data;
       if(response.data.name) {
@@ -40,6 +42,6 @@ const getCharById = async(req, res) => {
       res.status(500).send(error.message)
    }
 }
-
+*/
 
 module.exports = getCharById;

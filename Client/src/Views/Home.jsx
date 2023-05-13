@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMySelection, addSelection, delSelection } from "../redux/actions.js";
 import axios from "axios";
-const url ='https://rickandmortyapi.com/api/character/';
-//const url1='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
+const urlClient='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 function Home (props) {
     const imagen = "../img/logo.png";
@@ -33,10 +32,8 @@ function Home (props) {
            window.alert('Personaje ya se encuentra cargado');
            return;
        }
-       //const url = id <= 20 ? url1 : url2;
-
        try {
-         const response = await axios(`${url}${id}`);
+         const response = await axios(`${urlClient}${id}`);
          console.log(response.data);
          const data = response.data;
          if(data.name){

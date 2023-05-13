@@ -9,15 +9,12 @@ import Favorites from './components/Favorites/Favorites';
 import NavBar from './components/NavBar/NavBar';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-//const url ='https://rickandmortyapi.com/api/character/';  //url original
 import axios from 'axios';
 const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 function App () {
    const location  = useLocation();
    const [access, setAccess] = useState(false);
-   //const userEmail = "polmn98@gmail.com";
-   //const userClave = "gisell1998";
    const navigate = useNavigate();
    const [characters, setCharacters] = useState([]);
 

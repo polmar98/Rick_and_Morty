@@ -16,7 +16,6 @@ const addFav = (character) => {
 */
 export const addFav =  (character) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav';
-    console.log("Enviado : ",character);
     try {
         return async (dispatch) => {
             let respons = await axios.post(endpoint, character) ;
@@ -52,7 +51,7 @@ const addFav = (character) => {
 //};
 //  -----------------------------------
 
-export const delFav = (id) => {
+export const delFav =  (id) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
     return async (dispatch) => {
        await axios.delete(endpoint).then(({ data }) => {

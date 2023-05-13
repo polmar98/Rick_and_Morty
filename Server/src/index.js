@@ -5,12 +5,7 @@ const router = require('./routes/index');
 
 
 //middlewares
-
-
-
 server.use((req, res, next) => {
-   //const {url} = req;
-   //console.log("Peticion :"+url);
    res.header('Access-Control-Allow-Origin', '*');
    res.header('Access-Control-Allow-Credentials', 'true');
    res.header(
