@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Detalles from "../components/Detalles/Detalles";
 import { useState } from "react";
 import { useEffect } from "react";
-const url ='https://rickandmortyapi.com/api/character/';  //url original
-//const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
+import axios from "axios";
+const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
 
 
 const Details = function() {
@@ -12,6 +12,7 @@ const Details = function() {
     const [characters, setCharacters] = useState({});
     const Ninguna = ()=>{};
 
+   
     useEffect(() => {
         fetch(`${url}${params.id}`)
           .then((response) => response.json())
@@ -27,7 +28,8 @@ const Details = function() {
           });
         return setCharacters({});
     }, [params.id]);
-    
+   
+ 
     const logout=()=>{};
 
     return (
