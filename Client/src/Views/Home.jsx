@@ -16,6 +16,7 @@ function Home (props) {
     const [characters, setCharacters] = useState(personajes);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userId = useSelector((state) => state.usuarioId);
     
     useEffect(() => {
        dispatch(getMySelection());

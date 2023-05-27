@@ -1,18 +1,21 @@
 import style from "../Card/Card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, delFav } from "../../redux/actions";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import {useState, useEffect} from 'react';
 
-export function Card({id,name,species,gender,image,onClose,myFavorites,addFav,delFav}) {
+export function Card({id,name,species,gender,image,status,origin,onClose,myFavorites,addFav,delFav}) {
    const [isFavorite, setIsFavorite] = useState(false);
+   const userId = useSelector((state) => state.usuarioId);
    const favoritos = myFavorites;
    const personaje = {
-      id: id,
-      name: name,
-      species: species,
-      gender: gender,
-      image: image,
+      id,
+      name,
+      species,
+      gender,
+      image,
+      status,
+      origin,
    }
    const handleFavorite = () => {
       if(!isFavorite){

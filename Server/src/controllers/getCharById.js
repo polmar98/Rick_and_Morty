@@ -22,26 +22,6 @@ const getCharById = (req, res) => {
 }
 
 
-/*
-//UTILIZANDO PROMESAS con async - await
-const getCharById = async(req, res) => {
-   const {id} = req.params;
-   console.log("ID Solicitado :", id);
-   try {
-      const response = await axios.get(`${url}${id}`);
-      console.log(response.data.name);
-      const {id,name,origin,status,gender,species,image} = response.data;
-      if(response.data.name) {
-         const char = {id,name,origin,status,gender,species,image};
-         res.status(200).json(char);
-      } else {
-         res.status(404).send("id Not Found");
-      }
-    
-   } catch (error) {
-      res.status(500).send(error.message)
-   }
-}
-*/
+
 
 module.exports = getCharById;

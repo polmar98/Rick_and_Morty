@@ -8,6 +8,8 @@ import All from './Views/All';
 import Favorites from './components/Favorites/Favorites';
 import NavBar from './components/NavBar/NavBar';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { asignaUser } from './redux/actions';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo servidor local
@@ -15,9 +17,10 @@ const url ='http://localhost:3001/rickandmorty/character/';  //url del nuevo ser
 function App () {
    const location  = useLocation();
    const [access, setAccess] = useState(false);
+   const [usuarioId, setUsuarioId] = useState(0);
    const navigate = useNavigate();
    const [characters, setCharacters] = useState([]);
-
+   const dispatch = useDispatch();
 //   ANTIGUA FUNCION DE LOGIN
 //   -------------------------------------------------------------------------
 //   function login(userData) {
@@ -30,11 +33,15 @@ function App () {
 
   function login(userData) {
      const { email, password } = userData;
+
      const URL = 'http://localhost:3001/rickandmorty/login/';
      axios(URL + `?email=${email}&password=${password}`)
      .then(({ data }) => {
-        const { access } = data;
+        const { access, userId } = data;
         setAccess(access);
+        setUsuarioId(userId);
+        console.log("Ingreso:",userId);
+        dispatch(asignaUser(userId));
         access && navigate('/home');
      })
      .catch(err => console.log(err.message));

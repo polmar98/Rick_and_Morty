@@ -2,6 +2,7 @@ const initialState = {
     myFavorites: [],
     allCharacters: [],
     mySelection: [],
+    usuarioId: 0,
 };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -46,7 +47,9 @@ const reducer = (state = initialState, {type, payload}) => {
             let copia6 = state.mySelection.filter((char) => {
                 return char.id !== Number(payload);
              })
-             return {...state, mySelection: copia6};                  
+             return {...state, mySelection: copia6};  
+        case 'ASIGNA_USER':
+            return {...state, usuarioId: Number(payload)};                     
         default:
             return {...state};        
     }

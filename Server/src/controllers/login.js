@@ -1,17 +1,18 @@
-const data = require('../utils/users');
+const {User} = require("../DB_connection");
 
-function buscarUsuario(ele,email,password) {
-    return ele.email == email && ele.password == password;
-};
-
-const login = (req, res) => {
+const login = async (req, res) => {
     const {email, password} = req.query;
-    let buscado = [];
-    buscado = data.find((ele) => buscarUsuario(ele, email, password));
-    console.log(`Peticion: login=${email} clave=${password}`);
-    const access = buscado ? true : false;
-    return res.status(200).json({access: access});
+    console.log("email:",email);
+    try {
+        if(!email || !password) return res.status(400).json({message: 'Faltan Datos'});
+        const user = await User.findOne({where: {email}});
+        if(!user) return res.status(404).json({message: 'Usuario No encontrado'});
+        if(user.password !== password) return res.status(403).json({message: "Clave Invalida"});
+        res.status(200).json({access: true, userId: user.id});
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }    
 }
 
-module.exports = login;
+module.exports = {login};
 

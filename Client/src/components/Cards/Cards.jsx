@@ -13,6 +13,8 @@ export default function Cards({characters, onClose, estado}) {
                         species={prop.species}
                         gender={prop.gender}
                         image={prop.image}
+                        status={prop.status}
+                        origin={prop.origin}
                         onClose={onClose}
                      />
                 )}
@@ -29,6 +31,8 @@ export default function Cards({characters, onClose, estado}) {
                         species={prop.species}
                         gender={prop.gender}
                         image={prop.image}
+                        status={prop.status}
+                        origin={prop.origin}  
                         onClose={onClose}
                      />
                 )}

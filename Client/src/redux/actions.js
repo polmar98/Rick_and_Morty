@@ -15,7 +15,7 @@ const addFav = (character) => {
  };
 */
 export const addFav =  (character) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav';
+    const endpoint = 'http://localhost:3001/rickandmorty/fav?idUser=1';
     try {
         return async (dispatch) => {
             let respons = await axios.post(endpoint, character) ;
@@ -99,3 +99,9 @@ export const delSelection = (id) => {
     }
 };
 
+export const asignaUser = (id) => {
+    return {
+        type: 'ASIGNA_USER',
+        payload: id,
+    }
+}
