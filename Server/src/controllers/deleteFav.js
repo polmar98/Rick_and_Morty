@@ -5,9 +5,11 @@ const delFav = async (req, res) => {
     const {idUser} = req.query;
     try {
         const fav = await Favorite.findOne({where: {id}});
-        await fav.removeUser(idUser);
+        console.log(fav);
+        await fav.removeFavorite(id);
         res.satus(200).json({success: true})
     } catch (error) {
+        console.log(error.message);
         res.status(500).json({message: error.message})
     }
 };

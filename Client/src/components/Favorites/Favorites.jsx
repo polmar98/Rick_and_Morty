@@ -1,14 +1,21 @@
-import { connect } from "react-redux";
+//import { connect } from "react-redux";
 import Card from "../Card/Card";
 import { orderCards, filterCards } from "../../redux/actions";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import axios from "axios";
+const endpoint = 'http://localhost:3001/rickandmorty/fav';
+var myFavorites = [];
 
-function Favorites(props) {
+const Favorites = () => {
     const dispatch = useDispatch();
-    const {myFavorites} = props;
-    const Ninguna = () => {};
+  
 
+    axios.get(endpoint)
+    .then((data) => {myFavorites = data.data})
+    .catch((error)=> {console.log(error.message)});        
+ 
+    const Ninguna = () => {};
     const handlerFilter = (event) => {
         let genero = event.target.value;
         dispatch(filterCards(genero));
@@ -19,9 +26,9 @@ function Favorites(props) {
         dispatch(orderCards(orden));
     }
 
+
     return (
         <div>
-            {/*<Link to='/home'><span>Home</span></Link>*/}
             <div>
             <select name="orden" onChange= {handlerOrder}>
                 <option value="Ascendente">Ascendente</option>
@@ -38,10 +45,11 @@ function Favorites(props) {
             {myFavorites.length && myFavorites.map((prop) =>{
                 return (
                 <Card
-                    key={prop.id}
-                    id={prop.id}
+                    key={prop.idApi}
+                    id={prop.idApi}
                     name={prop.name}
                     species={prop.species}
+                    status={prop.status}
                     gender={prop.gender}
                     image={prop.image}
                     onClose={Ninguna}
@@ -51,8 +59,11 @@ function Favorites(props) {
             })}
         </div>
     )
+ 
 }
 
+export default Favorites;
+/*
 const mapStateToProps = (state) => {
     return {
         myFavorites: state.myFavorites,
@@ -62,3 +73,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(Favorites);
+*/

@@ -53,6 +53,7 @@ const addFav = (character) => {
 
 export const delFav =  (id) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+    console.log(endpoint);
     return async (dispatch) => {
        await axios.delete(endpoint).then(({ data }) => {
           return dispatch({

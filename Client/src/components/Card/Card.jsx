@@ -20,7 +20,7 @@ export function Card({id,name,species,gender,image,status,origin,onClose,myFavor
    const handleFavorite = () => {
       if(!isFavorite){
          //verificamos que no haya sido agregado
-         const buscado = favoritos.find(ele => ele.id===personaje.id);
+         const buscado = favoritos.find(ele => ele.idApi===personaje.id);
          if(buscado) {
             setIsFavorite(isFavorite);
             return;
@@ -32,7 +32,7 @@ export function Card({id,name,species,gender,image,status,origin,onClose,myFavor
    
    useEffect(() => {
       myFavorites.forEach((fav) => {
-         if (fav.id === id) {
+         if (fav.idApi === id) {
             setIsFavorite(true);
          }
       });

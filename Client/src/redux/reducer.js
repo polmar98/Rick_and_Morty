@@ -10,7 +10,7 @@ const reducer = (state = initialState, {type, payload}) => {
     switch (type) {
         case 'ADD_FAVORITE':
             let copiaAll= state.allCharacters;
-            copiaAll.push(payload);
+             copiaAll.push(payload);
             return {...state, myFavorites: copiaAll, allCharacters: copiaAll};
         case 'REMOVE_FAVORITE':
              let {id} = payload;

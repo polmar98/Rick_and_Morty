@@ -35,7 +35,6 @@ function Home (props) {
        }
        try {
          const response = await axios(`${urlClient}${id}`);
-         console.log(response.data);
          const data = response.data;
          if(data.name){
             setCharacters((oldChars) =>[...oldChars, data]);

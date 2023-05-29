@@ -22,7 +22,7 @@ server.use(express.json());
 server.use('/rickandmorty', router);
 
 conn
-  .sync({ force: true})
+  .sync({ force: false})
   .then(() => {
       server.listen(PORT, () => {
          console.log('Server raised in port: ' + PORT);

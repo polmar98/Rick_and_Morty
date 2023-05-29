@@ -2,7 +2,6 @@ const {User} = require("../DB_connection");
 
 const login = async (req, res) => {
     const {email, password} = req.query;
-    console.log("email:",email);
     try {
         if(!email || !password) return res.status(400).json({message: 'Faltan Datos'});
         const user = await User.findOne({where: {email}});
